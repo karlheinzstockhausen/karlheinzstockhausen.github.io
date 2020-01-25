@@ -10,6 +10,32 @@
 	
 	<br><br>
 
-Soon there will be better ways to contact me, but for now: karlheinzstockhausen420@gmail.com
+<?php
+$action=$_REQUEST['action'];
+if ($action=="")    /* display the contact form */
+    {
+    ?>
+    <form  action="" method="POST" enctype="multipart/form-data">
+    Your message:<br>
+    <textarea name="message" rows="7" cols="30"></textarea><br>
+    <input type="submit" value="Send"/>
+    </form>
+    <?php
+    } 
+else                /* send the submitted data */
+    $message=$_REQUEST['message'];
+    if ($message==""))
+        {
+        echo "Unfortunately, you cannot send me nothing using this formm you that You can't send nothing";
+        }
+    else{        
+        $from="Website user";
+        $subject="Message sent using your contact form";
+        mail("22483297@student.uwa.edu.au", $subject, $message, $from);
+        echo "Email sent!";
+        }
+    }  
+?>
+</div> 
 </body>
 </html>
